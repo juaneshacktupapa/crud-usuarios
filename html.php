@@ -21,9 +21,11 @@
         <label for="direccion">Dirección</label>
         <input type="text" name="direccion" id="direccion" placeholder="Ingrese su direccion">
         <br>
-        <button type="submit" name="enviar">Enviar</button>
-        <button type="submit" name="buscar">Buscar</button>
-        <button type="submit" name="eliminar">Eliminar</button>
-        <button type="submit" name="actualizar">Actualizar</button>
+        <div>
+            <button type="submit" name="enviar">Enviar</button>
+            <button type="submit" name="buscar">Buscar</button>
+            <button type="submit" name="eliminar">Eliminar</button>
+            <button type="submit" name="actualizar">Actualizar</button>
+        </div>
     </form>
 </main>

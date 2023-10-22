@@ -23,5 +23,7 @@
         <br>
         <button type="submit" name="enviar">Enviar</button>
         <button type="submit" name="buscar">Buscar</button>
+        <button type="submit" name="eliminar">Eliminar</button>
+        <button type="submit" name="actualizar">Actualizar</button>
     </form>
 </main>

@@ -16,14 +16,35 @@
             $result = consulta($consulta);
 
             if($result){
-                while($row = mysqli_fetch_array($result)){
-                    echo "DNI: ".$row["DNI"]." ";
-                    echo "Nombre: ".$row["Nombres"]." ";
-                    echo "Apellido: ".$row["Apellidos"]." ";
-                    echo "Correo: ".$row["Correo"]." ";
-                    echo "Telefono: ".$row["Telefono"]." ";
-                    echo "Direccion: ".$row["Direccion"]."<br>";
-                }
+                echo"
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                <td>DNI</td>
+                                <td>Nombres</td>
+                                <td>Apellidos</td>
+                                <td>Correo</td>
+                                <td>Telefono</td>
+                                <td>Dirección</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                    ";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo"<tr>";
+                                        echo"<td>".$row['DNI']."</td>";                  
+                                        echo"<td>".$row['Nombres']."</td>";                  
+                                        echo"<td>".$row['Apellidos']."</td>";                  
+                                        echo"<td>".$row['Correo']."</td>";                  
+                                        echo"<td>".$row['Telefono']."</td>";                  
+                                        echo"<td>".$row['Direccion']."</td>";                
+                                    echo"</tr>";
+                                    }
+                    echo"
+                            </tbody>
+                        </table>
+                    </div>";
             }
         }
 
@@ -34,6 +55,26 @@
 
             if ($result){
                 echo "Datos almacenados correctamente";
+            }
+        }
+
+        if(isset($_POST["eliminar"])){
+            
+            $consulta = "DELETE FROM usuarios where DNI = $DNI";    
+            $result = consulta($consulta);
+
+            if ($result){
+                echo "Datos eliminados correctamente";
+            }
+        }
+
+        if(isset($_POST["actualizar"])){
+
+            $consulta = "UPDATE usuarios SET Nombres = '$Nombres', Apellidos = '$Apellidos', Correo = '$Correo', Telefono = '$Telefono', Direccion = '$Direccion' WHERE DNI = '$DNI'";    
+            $result = consulta($consulta);
+
+            if ($result){
+                echo "Datos actualizados correctamente";
             }
         }
     }   
